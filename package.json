@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/zerosoul/github-social-image-generator/issues"
   },
-  "homepage": "https://stars.yangerxiao.com",
+  "homepage": "https://works.yangerxiao.com/github-social-image-generator/",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
     "@ungap/url-search-params": "^0.1.2",
