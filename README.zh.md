@@ -1,24 +1,25 @@
-# Awesome Github star visualize tool
+# Github仓库Star统计工具
 
-[中文文档](./README.zh.md)
+目前(2019-10-11)互联网还找不到一个能可视化 github 仓库日增 star 数，为了满足自身需求和填补这块空白，我做了工具供大家使用。🌈🌈
 
-These is no tool to visualize daily github star number online, so I build one! 🌈🌈🌈
+访问地址: [http://stars.yangerxiao.com](http://stars.yangerxiao.com)
+输入正确的仓库地址（比如：`https://github.com/zerosoul/chinese-colors`），剩下的就可以让这个工具来处理了。
+
+## 界面
 
 ![star data loaded](demo/loaded.png)
 
-Visit: [http://stars.yangerxiao.com](http://stars.yangerxiao.com). Input the github repo url, star data will be loaded automatically.
+## 特性
 
-## Features
-
-- Mobile friendly 📱
-- Select time slot handily ✋
-- Different chart types 📊
-- List all the stargazers 👦
-- Export the chart as PNG image 🖼
+- 移动端友好 📱
+- 可以方便地选择时间区间 ✋
+- 提供多种类图表 📊
+- 列出所有的关注标星者，并提供主页链接 👦
+- 可导出图片 🖼
 
 ![star data result](demo/result.png)
 
-## Thanks
+## 感谢
 
 - [Github API v4](https://developer.github.com/v4/)
 - [apollo graphql](https://apollographql.com/docs/react/)
@@ -27,16 +28,16 @@ Visit: [http://stars.yangerxiao.com](http://stars.yangerxiao.com). Input the git
 - [Recharts](http://recharts.org/)
 - [antd](https://ant.design)
 - [styled-components](https://styled-components.com): CSS-IN-JS Best Practice
-- eslint + prettier: for better code
-- husky + commitlint: for better git commit format
-- Thanks the great Open Source
+- eslint + prettier
+- husky + commitlint
+- 感谢伟大的开源世界
 
-## Support
+## 支持该项目
 
-### Reward
+### 赞赏
 
-![reward code](./src/assets/img/reward.jpg)
+![赞赏码](./src/assets/img/reward.jpg)
 
-### Upvoted Producthunt
+### Product Hunt 点赞支持
 
 <a href="https://www.producthunt.com/posts/github-star-statistics-tool?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-github-star-statistics-tool" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=171040&theme=dark" alt="Github Star Statistics Tool - Awesome github daily star statistics tool | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>

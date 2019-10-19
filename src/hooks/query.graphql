@@ -1,0 +1,38 @@
+query GetRepo($name: String!, $owner: String!) {
+  repository(name: $name, owner: $owner) {
+    name
+    shortDescriptionHTML
+    createdAt
+    description
+    viewerHasStarred
+    url
+    usesCustomOpenGraphImage
+    forkCount
+    homepageUrl
+    nameWithOwner
+    diskUsage
+    owner {
+      avatarUrl
+    }
+    watchers {
+      totalCount
+    }
+    primaryLanguage {
+      name
+      color
+      id
+    }
+    stargazers {
+      totalCount
+    }
+  }
+}
+
+query getLimit {
+  rateLimit {
+    cost
+    limit
+    remaining
+    resetAt
+  }
+}
