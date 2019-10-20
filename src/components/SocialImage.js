@@ -47,7 +47,6 @@ const StyledWrapper = styled.section`
   }
   .lang {
     font-size: 0.6rem;
-    color: #666;
     margin-top: 0.4rem;
     .tag {
       padding: 0.2rem 0.4rem;
