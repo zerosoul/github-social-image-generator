@@ -7,8 +7,7 @@ import NoiseBg from '../assets/img/noise.bg.png';
 import { getDateFormatted } from '../utils';
 import Avatar from './Avatar';
 const StyledWrapper = styled.section`
-  margin: 2rem auto;
-  margin-bottom: 1rem;
+  margin: 1rem auto;
   padding: 1rem 1.4rem;
   background-color: ${({ bgColor }) => bgColor};
   display: flex;
@@ -24,12 +23,12 @@ const StyledWrapper = styled.section`
 
   h2 {
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.4rem;
     margin: 0.3rem 0.6rem;
     padding: 0.2rem;
   }
   .desc {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     margin: 0.4rem;
     padding: 0.2rem;
     white-space: normal;
@@ -37,18 +36,18 @@ const StyledWrapper = styled.section`
     text-align: center;
   }
   .addr {
-    font-size: 0.4rem;
+    font-size: 0.5rem;
     color: blue;
     margin: 0.2rem;
     padding: 0.2rem;
   }
   .createDate {
     padding: 0.5rem;
-    font-size: 0.4rem;
+    font-size: 0.5rem;
   }
   .lang {
-    font-size: 0.5rem;
-    color: #ddd;
+    font-size: 0.6rem;
+    color: #666;
   }
   .toggleEdit {
     position: absolute;
@@ -73,7 +72,7 @@ export default function SocialImage({
   owner: { avatarUrl },
   createdAt
 }) {
-  const [currBgColor, setCurrBgColor] = useState('#fff');
+  const [currBgColor, setCurrBgColor] = useState('#e3f9fd');
   const [editable, setEditable] = useState(false);
   const toggleEdit = () => {
     setEditable(prev => !prev);

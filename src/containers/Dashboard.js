@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Spin } from 'antd';
 import Download from '../components/Download';
@@ -13,12 +13,11 @@ const StyledWrapper = styled.section`
 `;
 
 export default function Dashboard({ loading, repo }) {
-  const container = useRef(null);
   return (
     <Spin spinning={loading} size="large" tip={'Loading...'}>
       <StyledWrapper>
         {repo ? <SocialImage {...repo} /> : <Placeholder></Placeholder>}
-        {repo ? <Download ele={container ? container.current : null} /> : null}
+        {repo ? <Download query={'#SOCIAL_IMAGE'} /> : null}
       </StyledWrapper>
     </Spin>
   );

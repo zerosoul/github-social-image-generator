@@ -11,37 +11,39 @@ const sleep = async (dur = 2) => {
     }, misDur);
   });
 };
-export default function Download({ ele }) {
+export default function Download({ query = null }) {
   const [generating, setGenerating] = useState(false);
-  const generateImage = async (ele, name = 'repo-social-image') => {
+  const generateImage = async (query, name = 'repo-social-image') => {
+    if (!query) return;
     setGenerating(true);
-    await sleep(1);
-    const tmpEle = document.querySelector('#SOCIAL_IMAGE');
-    tmpEle.classList.add('starting');
-    html2canvas(tmpEle, {
-      allowTaint: true,
-      useCORS: true,
-      debug: process.env.NODE_ENV !== 'production',
-      // onclone: document => {
-      //   let tmp = document.querySelector(query);
-      //   tmp.classList.add('starting');
+    const tmpEle = document.querySelector(query);
 
-      //   console.log('dommmm', tmp.innerHTML);
-      // },
-      scale: window.devicePixelRatio
-    }).then(function(canvas) {
-      console.log(canvas);
+    if (tmpEle) {
+      // 滚动到顶部，目前不这样，html2canvas有坑
+      document.documentElement.scrollIntoView({ alignToTop: true, behavior: 'smooth' });
+      await sleep(1);
 
-      canvas.toBlob(blob => {
-        saveAs(blob, `${name}-${new Date().getTime()}.png`);
-        setGenerating(false);
-      }, 'image/png');
-      // saveAs(canvas.toDataURL(), `${name}-${new Date().getTime()}.png`);
-      ele.classList.remove('starting');
-    });
+      tmpEle.classList.add('starting');
+      html2canvas(tmpEle, {
+        allowTaint: true,
+        useCORS: true,
+        debug: process.env.NODE_ENV !== 'production',
+
+        scale: window.devicePixelRatio
+      }).then(function(canvas) {
+        console.log(canvas);
+
+        canvas.toBlob(blob => {
+          saveAs(blob, `${name}-${new Date().getTime()}.png`);
+          setGenerating(false);
+        }, 'image/png');
+        // saveAs(canvas.toDataURL(), `${name}-${new Date().getTime()}.png`);
+        tmpEle.classList.remove('starting');
+      });
+    }
   };
   const handleClick = async () => {
-    await generateImage(ele);
+    await generateImage(query);
   };
   return (
     <Button

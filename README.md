@@ -1,20 +1,18 @@
-# Awesome Github star visualize tool
+# Awesome Github repo social image generator tool
 
-[中文文档](./README.zh.md)
+These is no tool to generate github repo social image, so I build one! 🌈🌈🌈
 
-These is no tool to visualize daily github star number online, so I build one! 🌈🌈🌈
+![star data loaded](demo/repo.png)
 
-![star data loaded](demo/loaded.png)
-
-Visit: [http://stars.yangerxiao.com](http://stars.yangerxiao.com). Input the github repo url, star data will be loaded automatically.
+Visit: [https://works.yangerxiao.com/github-social-image-generator/](https://works.yangerxiao.com/github-social-image-generator/?repo=https://github.com/zerosoul/github-social-image-generator). Input the github repo url, magic will happen automatically!
 
 ## Features
 
+- Awesome texture backgroud image ✋
+- Custom fill backgroud color 📊
+- Edit the content as you like, including remove it! 👦
+- Download the result as PNG image to share! 🖼
 - Mobile friendly 📱
-- Select time slot handily ✋
-- Different chart types 📊
-- List all the stargazers 👦
-- Export the chart as PNG image 🖼
 
 ![star data result](demo/result.png)
 
@@ -24,7 +22,7 @@ Visit: [http://stars.yangerxiao.com](http://stars.yangerxiao.com). Input the git
 - [apollo graphql](https://apollographql.com/docs/react/)
 - [create-react-app](https://github.com/facebook/create-react-app)
 - [react.js](https://reactjs.org)
-- [Recharts](http://recharts.org/)
+- [react-color](https://github.com/casesandberg/react-color/)
 - [antd](https://ant.design)
 - [styled-components](https://styled-components.com): CSS-IN-JS Best Practice
 - eslint + prettier: for better code
@@ -36,7 +34,3 @@ Visit: [http://stars.yangerxiao.com](http://stars.yangerxiao.com). Input the git
 ### Reward
 
 ![reward code](./src/assets/img/reward.jpg)
-
-### Upvoted Producthunt
-
-<a href="https://www.producthunt.com/posts/github-star-statistics-tool?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-github-star-statistics-tool" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=171040&theme=dark" alt="Github Star Statistics Tool - Awesome github daily star statistics tool | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px" /></a>

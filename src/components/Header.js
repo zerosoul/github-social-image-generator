@@ -17,18 +17,20 @@ const Wrapper = styled.header`
     top: 20;
   }
 `;
-export default function Header({ gameover, url = '', loading, finished, fetchRepo, total }) {
+export default function Header({ gameover, url = '', loading, fetchRepo, total }) {
   const [repo, setRepo] = useState(null);
   const [input, setInput] = useState(url);
   useEffect(() => {
     if (typeof gameover !== 'undefined' && !gameover) {
       let tmpRepo = getRepo(input);
       setRepo(tmpRepo);
-      if (tmpRepo) {
+      console.log({ gameover, tmpRepo, total });
+
+      if (tmpRepo && total === null) {
         fetchRepo(tmpRepo);
       }
     }
-  }, [fetchRepo, input, gameover]);
+  }, [fetchRepo, input, gameover, total]);
   const handleChange = ({ target }) => {
     const { value } = target;
 
@@ -51,7 +53,7 @@ export default function Header({ gameover, url = '', loading, finished, fetchRep
             onChange={handleChange}
             disabled={loading || !!gameover}
             onSearch={val => {
-              if (!val && finished) {
+              if (!val && true) {
                 return;
               }
               if (!val) {
