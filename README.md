@@ -1,5 +1,13 @@
 # Awesome Github repo social image generator tool
 
+Github >> Settings 👇
+
+![setting](demo/github.setting.png)
+
+Social image example 👇
+
+![example](demo/template.png)
+
 These is no tool to generate github repo social image, so I build one! 🌈🌈🌈
 
 ![star data loaded](demo/repo.png)
@@ -8,9 +16,9 @@ Visit: [https://works.yangerxiao.com/github-social-image-generator/](https://wor
 
 ## Features
 
-- Awesome texture backgroud image ✋
-- Custom fill backgroud color 📊
-- Edit the content as you like, including remove it! 👦
+- Awesome texture backgroud image 🎉
+- Custom fill backgroud color 🌈
+- Edit the content as you like, including remove it! 🗑
 - Download the result as PNG image to share! 🖼
 - Mobile friendly 📱
 
