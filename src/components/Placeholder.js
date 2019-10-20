@@ -17,6 +17,7 @@ const Wrapper = styled.hgroup`
     margin-bottom: 0.2rem;
   }
   .subTip {
+    margin-top: 1rem;
     font-size: 0.8rem;
     color: #aaa;
   }
@@ -26,7 +27,7 @@ export default function Placeholder() {
     <Wrapper>
       <img src={Logo} alt="star logo" />
       <h1 className="headerTip">☝️Github Repo Social Image Generator☝️</h1>
-      <h2 className="subTip">📈📊generate social image online📊📈</h2>
+      <h2 className="subTip">🔨generate social image online🔨</h2>
     </Wrapper>
   );
 }

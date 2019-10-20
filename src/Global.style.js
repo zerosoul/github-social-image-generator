@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     margin:0 auto;
     min-height:100vh;
     position: relative;
-    background: linear-gradient(-45deg, #e9f1f6, #fff, #fffbf0, #f2ecde);
+    background: linear-gradient(-45deg, #e0eee8, #c0ebd7, #bbcdc5, #7bcfa6);
      background-size: 400% 400%;
     animation: ${gradientBG} 15s ease infinite;
   }
@@ -40,22 +40,32 @@ const GlobalStyle = createGlobalStyle`
 
   @media screen and (min-width: 320px){
       html {
-          font-size: 12px;
+          font-size: 10px;
       }
   }
   @media screen and (min-width: 375px){
       html {
-          font-size: 14px;
+          font-size: 12px;
       }
   }
   @media screen and (min-width: 480px){
       html {
-          font-size: 20px;
+          font-size: 18px;
       }
   }
   @media screen and (min-width: 768px){
       html {
-          font-size: 24px;
+          font-size: 20px;
+      }
+  }
+  @media screen and (min-width: 1200){
+      html {
+          font-size: 26px;
+      }
+  }
+  @media screen and (min-width: 1400px){
+      html {
+          font-size: 28px;
       }
   }
 `;

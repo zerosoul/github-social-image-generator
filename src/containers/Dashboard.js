@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Spin } from 'antd';
 import Download from '../components/Download';
@@ -13,12 +13,17 @@ const StyledWrapper = styled.section`
 `;
 
 export default function Dashboard({ loading, repo }) {
+  const [editing, setEditing] = useState(false);
   return (
-    <Spin spinning={loading} size="large" tip={'Loading...'}>
-      <StyledWrapper>
-        {repo ? <SocialImage {...repo} /> : <Placeholder></Placeholder>}
-        {repo ? <Download query={'#SOCIAL_IMAGE'} /> : null}
-      </StyledWrapper>
-    </Spin>
+    <StyledWrapper>
+      {repo ? (
+        <SocialImage updateDownloadStatus={setEditing} {...repo} />
+      ) : (
+        <Spin className="loadding" spinning={loading} size="large" tip={'Loading...'}>
+          <Placeholder></Placeholder>
+        </Spin>
+      )}
+      {repo ? <Download disable={editing} query={'#SOCIAL_IMAGE'} /> : null}
+    </StyledWrapper>
   );
 }

@@ -11,7 +11,7 @@ const sleep = async (dur = 2) => {
     }, misDur);
   });
 };
-export default function Download({ query = null }) {
+export default function Download({ query = null, disable = false }) {
   const [generating, setGenerating] = useState(false);
   const generateImage = async (query, name = 'repo-social-image') => {
     if (!query) return;
@@ -47,6 +47,7 @@ export default function Download({ query = null }) {
   };
   return (
     <Button
+      disabled={disable}
       loading={generating}
       type="primary"
       icon="download"

@@ -14,8 +14,8 @@ const StyledWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 640px;
-  height: 320px;
+  width: 30rem;
+  height: 15rem;
   white-space: nowrap;
   box-shadow: -3px 7px 14px 0px black;
   background-image: url(${NoiseBg});
@@ -24,12 +24,12 @@ const StyledWrapper = styled.section`
   h2 {
     font-weight: 800;
     font-size: 1.4rem;
-    margin: 0.3rem 0.6rem;
+    margin: 0.3rem 0.4rem;
     padding: 0.2rem;
   }
   .desc {
     font-size: 0.8rem;
-    margin: 0.4rem;
+    margin-bottom: 0.3rem;
     padding: 0.2rem;
     white-space: normal;
     line-height: 1.4;
@@ -42,12 +42,18 @@ const StyledWrapper = styled.section`
     padding: 0.2rem;
   }
   .createDate {
-    padding: 0.5rem;
+    padding: 0.2rem;
     font-size: 0.5rem;
   }
   .lang {
     font-size: 0.6rem;
     color: #666;
+    margin-top: 0.4rem;
+    .tag {
+      padding: 0.2rem 0.4rem;
+      font-weight: 800;
+      border-radius: 0.2rem;
+    }
   }
   .toggleEdit {
     position: absolute;
@@ -65,6 +71,7 @@ const StyledWrapper = styled.section`
 `;
 
 export default function SocialImage({
+  updateDownloadStatus,
   name,
   description,
   url,
@@ -76,6 +83,7 @@ export default function SocialImage({
   const [editable, setEditable] = useState(false);
   const toggleEdit = () => {
     setEditable(prev => !prev);
+    updateDownloadStatus(!editable);
   };
   return (
     <StyledWrapper contentEditable={editable} id="SOCIAL_IMAGE" bgColor={currBgColor}>
@@ -92,7 +100,10 @@ export default function SocialImage({
       </Removable>
       <Removable removable={editable}>
         <p contentEditable={false} className="lang">
-          Code with <span style={{ color }}>{lang}</span>
+          Code with{' '}
+          <span className="tag" style={{ color, border: `1px solid ${color}` }}>
+            {lang}
+          </span>
         </p>
       </Removable>
       <BgColorSetting color={currBgColor} updateColor={setCurrBgColor} />
