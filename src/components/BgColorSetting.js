@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Icon } from 'antd';
+
+const FadeInDown = keyframes`
+  from{
+    transform:translateY(-20px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+`;
 
 import { SketchPicker } from 'react-color';
 
@@ -14,6 +25,7 @@ const StyledWrapper = styled.div`
   .popover {
     position: absolute;
     z-index: 2;
+    animation: ${FadeInDown} 1s;
     .cover {
       position: fixed;
       left: 0;

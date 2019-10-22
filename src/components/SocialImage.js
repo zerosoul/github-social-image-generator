@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Icon } from 'antd';
+import Bgs from './Backgrounds';
 import Removable from './Removable';
 import BgColorSetting from './BgColorSetting';
 import NoiseBg from '../assets/img/noise.bg.png';
@@ -18,9 +19,9 @@ const StyledWrapper = styled.section`
   height: 15rem;
   white-space: nowrap;
   box-shadow: -3px 7px 14px 0px black;
-  background-image: url(${NoiseBg});
+  background-image: url(${({ bgImage }) => bgImage});
   background-repeat: repeat;
-
+  transition: background 0.5s;
   h2 {
     font-weight: 800;
     font-size: 1.4rem;
@@ -64,7 +65,7 @@ const StyledWrapper = styled.section`
     .name,
     .desc,
     .addr {
-      border: 1px solid #111;
+      box-shadow: inset 0 0 0 1px black;
     }
   }
 `;
@@ -78,14 +79,22 @@ export default function SocialImage({
   owner: { avatarUrl },
   createdAt
 }) {
-  const [currBgColor, setCurrBgColor] = useState('#e3f9fd');
+  const [currBgImage, setCurrBgImage] = useState(NoiseBg);
+  const [currBgColor, setCurrBgColor] = useState('#b36d61');
   const [editable, setEditable] = useState(false);
   const toggleEdit = () => {
     setEditable(prev => !prev);
     updateDownloadStatus(!editable);
   };
+
   return (
-    <StyledWrapper contentEditable={editable} id="SOCIAL_IMAGE" bgColor={currBgColor}>
+    <StyledWrapper
+      contentEditable={editable}
+      id="SOCIAL_IMAGE"
+      bgImage={currBgImage}
+      bgColor={currBgColor}
+    >
+      <Bgs updateBgImage={setCurrBgImage} bgImage={currBgImage} currBgColor={currBgColor} />
       <Avatar url={avatarUrl} editable={editable} />
       <h2>{name}</h2>
       <p className="desc">{description}</p>

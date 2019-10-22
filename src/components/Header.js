@@ -21,7 +21,8 @@ export default function Header({ gameover, url = '', loading, fetchRepo, total }
   const [repo, setRepo] = useState(null);
   const [input, setInput] = useState(url);
   useEffect(() => {
-    if (typeof gameover !== 'undefined' && !gameover) {
+    console.log({ gameover, total });
+    if (total === null || (typeof gameover !== 'undefined' && !gameover)) {
       let tmpRepo = getRepo(input);
       setRepo(tmpRepo);
       console.log({ gameover, tmpRepo, total });
