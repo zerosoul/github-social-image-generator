@@ -22,7 +22,6 @@ export default function Download({ query = null, disable = false }) {
       // 滚动到顶部，目前不这样，html2canvas有坑
       document.documentElement.scrollIntoView({ alignToTop: true, behavior: 'smooth' });
       await sleep(1);
-
       tmpEle.classList.add('starting');
       html2canvas(tmpEle, {
         allowTaint: true,

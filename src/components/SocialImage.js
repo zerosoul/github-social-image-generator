@@ -22,6 +22,9 @@ const StyledWrapper = styled.section`
   background-image: url(${({ bgImage }) => bgImage});
   background-repeat: repeat;
   transition: background 0.5s;
+  &.starting {
+    box-shadow: none;
+  }
   h2 {
     font-weight: 800;
     font-size: 1.4rem;
@@ -32,7 +35,8 @@ const StyledWrapper = styled.section`
     font-size: 0.8rem;
     margin-bottom: 0.3rem;
     padding: 0.2rem;
-    white-space: normal;
+    max-height: 2.6rem;
+    overflow: hidden;
     line-height: 1.4;
     text-align: center;
   }
