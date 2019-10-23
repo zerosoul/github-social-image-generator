@@ -78,7 +78,7 @@ const StyledWrapper = styled.section`
 export default function SocialImage({
   updateDownloadStatus,
   name,
-  description,
+  descriptionHTML,
   url,
   primaryLanguage: { name: lang, color },
   owner: { avatarUrl },
@@ -102,7 +102,7 @@ export default function SocialImage({
       <Bgs updateBgImage={setCurrBgImage} bgImage={currBgImage} currBgColor={currBgColor} />
       <Avatar url={avatarUrl} editable={editable} />
       <h2>{name}</h2>
-      <p className="desc">{description}</p>
+      <p className="desc" dangerouslySetInnerHTML={{ __html: descriptionHTML }}></p>
       <Removable removable={editable}>
         <p className="addr">{url}</p>
       </Removable>

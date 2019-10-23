@@ -1,6 +1,7 @@
 query GetRepo($name: String!, $owner: String!) {
   repository(name: $name, owner: $owner) {
     name
+    descriptionHTML
     shortDescriptionHTML
     createdAt
     description

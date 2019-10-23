@@ -32,12 +32,13 @@ const StyledWrapper = styled.aside`
     width: 3rem;
     height: 3rem;
     font-weight: 800;
+    animation: ${SlideInLeft} 0.5s;
   }
   .cases {
     z-index: 2;
     padding: 0.4rem 0.2rem;
-    animation: ${SlideInLeft} 0.5s;
     .case {
+      transform: translateX(100px);
       cursor: pointer;
       text-align: center;
       font-weight: 800;
@@ -46,6 +47,7 @@ const StyledWrapper = styled.aside`
       border-radius: 0.4rem;
       margin: 0.3rem 0.4rem;
       background-color: #eedeb0;
+      animation: ${SlideInLeft} 0.5s forwards;
     }
   }
 `;
@@ -74,6 +76,10 @@ const repos = [
   {
     title: 'VS Code',
     url: 'https://github.com/microsoft/vscode'
+  },
+  {
+    title: 'Node.js',
+    url: 'https://github.com/nodejs/node'
   }
 ];
 export default function Cases({ updateInput }) {
@@ -99,9 +105,15 @@ export default function Cases({ updateInput }) {
         )}
         {!fold && (
           <ul className="cases">
-            {repos.map(({ title, url }) => {
+            {repos.map(({ title, url }, idx) => {
               return (
-                <li className="case" onClick={handleClick} key={title} data-url={url}>
+                <li
+                  style={{ animationDelay: `${0.1 * idx}s` }}
+                  className="case"
+                  onClick={handleClick}
+                  key={title}
+                  data-url={url}
+                >
                   {title}
                 </li>
               );
