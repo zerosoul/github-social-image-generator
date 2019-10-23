@@ -35,6 +35,7 @@ const StyledWrapper = styled.section`
     font-size: 0.8rem;
     margin-bottom: 0.3rem;
     padding: 0.2rem;
+    white-space: normal;
     max-height: 2.6rem;
     overflow: hidden;
     line-height: 1.4;

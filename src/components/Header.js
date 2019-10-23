@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Divider, Affix, Input, Badge, message } from 'antd';
 import styled from 'styled-components';
 import { getRepo } from '../utils';
+import Cases from './Cases';
 const { Search } = Input;
 const Wrapper = styled.header`
   padding: 1rem 2rem;
@@ -39,6 +40,7 @@ export default function Header({ gameover, url = '', loading, fetchRepo, total }
   };
   return (
     <Wrapper>
+      <Cases updateInput={setInput} />
       <Affix offsetTop={20} style={{ width: '100%' }}>
         <Badge
           style={{ backgroundColor: '#87d068' }}

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { SketchPicker } from 'react-color';
 import styled, { keyframes } from 'styled-components';
 import { Icon } from 'antd';
+import Cover from './Cover';
 
 const FadeInDown = keyframes`
   from{
@@ -13,8 +15,6 @@ const FadeInDown = keyframes`
   }
 `;
 
-import { SketchPicker } from 'react-color';
-
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,13 +26,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     z-index: 2;
     animation: ${FadeInDown} 1s;
-    .cover {
-      position: fixed;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-    }
+
     .picker {
       position: absolute;
       top: 1.2rem;
@@ -56,7 +50,7 @@ export default function BgColorSetting({ color = 'fff', updateColor }) {
 
       {visible ? (
         <div className="popover">
-          <div className="cover" onClick={handleVisible}></div>
+          <Cover onClick={handleVisible} />
           <SketchPicker className="picker" color={color} onChangeComplete={handleColorChange} />
         </div>
       ) : null}

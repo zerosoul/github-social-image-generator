@@ -6,7 +6,6 @@ const StyledWrapper = styled.div`
   .avatar {
     width: 4rem;
     height: 4rem;
-    border-radius: 50%;
   }
   .edit {
     position: absolute;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Icon } from 'antd';
+import Cover from './Cover';
 import Grey from '../assets/img/bg/always-grey.png';
 import Brick from '../assets/img/bg/brick-wall.png';
 import BrickDark from '../assets/img/bg/brick-wall-dark.png';
@@ -46,13 +47,7 @@ const StyledWrapper = styled.nav`
   position: absolute;
   left: 0;
   top: 1rem;
-  .cover {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
+
   .menu-toggler {
     position: absolute;
     display: block;
@@ -145,7 +140,7 @@ export default function Backgrounds({ bgImage = null, currBgColor = '#fff', upda
   };
   return (
     <StyledWrapper data-html2canvas-ignore bg={bgImage} bgColor={currBgColor}>
-      {checked && <div className="cover" onClick={toggleCheckbox}></div>}
+      {checked && <Cover onClick={toggleCheckbox} />}
       <input onChange={toggleCheckbox} checked={checked} className="menu-toggler" type="checkbox" />
       <label htmlFor="menu-toggler">
         <Icon theme="filled" type="picture" />
