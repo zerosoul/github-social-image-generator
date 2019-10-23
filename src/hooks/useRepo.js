@@ -1,8 +1,8 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { GetRepo } from './query.graphql';
 
-export default function useStarTotal() {
+export default function useRepo() {
   const [getRepo, { data, loading, error }] = useLazyQuery(GetRepo);
 
   const fetchRepo = useCallback(
@@ -16,7 +16,13 @@ export default function useStarTotal() {
     },
     [getRepo]
   );
-
+  // 有变化，就存localStorage
+  useEffect(() => {
+    if (data) {
+      const { url } = data.repository;
+      localStorage.setItem('LOCAL_REPO_URL', url);
+    }
+  }, [data]);
   return {
     fetchRepo,
     total: (data && data.repository.stargazers.totalCount) || null,

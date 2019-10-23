@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Divider, Affix, Input, Badge, message } from 'antd';
 import styled from 'styled-components';
-import { getRepo } from '../utils';
+import { getRepo, getQueryValue } from '../utils';
+
 import Cases from './Cases';
 const { Search } = Input;
 const Wrapper = styled.header`
@@ -18,9 +19,11 @@ const Wrapper = styled.header`
     top: 20;
   }
 `;
-export default function Header({ gameover, url = '', loading, fetchRepo, total }) {
+const LOCAL_REPO_URL = localStorage.getItem('LOCAL_REPO_URL') || getQueryValue('repo') || '';
+
+export default function Header({ gameover, loading, fetchRepo, total }) {
   const [repo, setRepo] = useState(null);
-  const [input, setInput] = useState(url);
+  const [input, setInput] = useState(LOCAL_REPO_URL);
   useEffect(() => {
     console.log({ gameover, total });
     if (total === null || (typeof gameover !== 'undefined' && !gameover)) {
@@ -56,7 +59,7 @@ export default function Header({ gameover, url = '', loading, fetchRepo, total }
             onChange={handleChange}
             disabled={loading || !!gameover}
             onSearch={val => {
-              if (!val && true) {
+              if (!val) {
                 return;
               }
               if (!val) {
@@ -68,6 +71,8 @@ export default function Header({ gameover, url = '', loading, fetchRepo, total }
                 message.warning('URL invalid');
                 return;
               }
+              console.log('ddddddddd');
+
               fetchRepo(repo);
             }}
           />

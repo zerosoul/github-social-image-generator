@@ -1,7 +1,6 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { message } from 'antd';
 import { useRepo, useLimit } from './hooks';
-import { getQueryValue } from './utils';
 
 import Loading from './components/Loading';
 import GameoverModal from './components/GameoverModal';
@@ -19,9 +18,7 @@ message.config({
   maxCount: 1,
   top: 80
 });
-
 const App = () => {
-  const [url, setUrl] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const { gameover, resetDate } = useLimit();
 
@@ -46,13 +43,6 @@ const App = () => {
       setErrMsg(tmpMsg);
     }
   }, [error]);
-  useEffect(() => {
-    let urlVal = getQueryValue('repo');
-
-    if (urlVal) {
-      setUrl(urlVal);
-    }
-  }, []);
 
   // api error message
   useEffect(() => {
@@ -66,7 +56,7 @@ const App = () => {
   return (
     <Suspense fallback={<Loading />}>
       <GameoverModal gameover={gameover} resetDate={resetDate} />
-      <Header gameover={gameover} url={url} total={total} loading={loading} fetchRepo={fetchRepo} />
+      <Header gameover={gameover} total={total} loading={loading} fetchRepo={fetchRepo} />
       <Dashboard loading={loading} repo={repo} />
       <Footer />
     </Suspense>

@@ -4,9 +4,9 @@ import { Icon } from 'antd';
 import Bgs from './Backgrounds';
 import Removable from './Removable';
 import BgColorSetting from './BgColorSetting';
-import NoiseBg from '../assets/img/noise.bg.png';
 import { getDateFormatted } from '../utils';
 import Avatar from './Avatar';
+import { useBackground } from '../hooks';
 const StyledWrapper = styled.section`
   margin: 1rem auto;
   padding: 1rem 1.4rem;
@@ -84,8 +84,7 @@ export default function SocialImage({
   owner: { avatarUrl },
   createdAt
 }) {
-  const [currBgImage, setCurrBgImage] = useState(NoiseBg);
-  const [currBgColor, setCurrBgColor] = useState('#b36d61');
+  const { bgColor: currBgColor, bgImage: currBgImage, setBgImage, setBgColor } = useBackground();
   const [editable, setEditable] = useState(false);
   const toggleEdit = () => {
     setEditable(prev => !prev);
@@ -99,7 +98,7 @@ export default function SocialImage({
       bgImage={currBgImage}
       bgColor={currBgColor}
     >
-      <Bgs updateBgImage={setCurrBgImage} bgImage={currBgImage} currBgColor={currBgColor} />
+      <Bgs updateBgImage={setBgImage} bgImage={currBgImage} currBgColor={currBgColor} />
       <Avatar url={avatarUrl} editable={editable} />
       <h2>{name}</h2>
       <p className="desc" dangerouslySetInnerHTML={{ __html: descriptionHTML }}></p>
@@ -119,7 +118,7 @@ export default function SocialImage({
           </span>
         </p>
       </Removable>
-      <BgColorSetting color={currBgColor} updateColor={setCurrBgColor} />
+      <BgColorSetting color={currBgColor} updateColor={setBgColor} />
       <Icon
         onClick={toggleEdit}
         data-html2canvas-ignore
