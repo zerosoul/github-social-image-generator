@@ -43,9 +43,9 @@ const StyledWrapper = styled.aside`
       text-align: center;
       font-weight: 800;
       font-size: 0.8rem;
-      padding: 0.3rem 0.5rem;
-      border-radius: 0.4rem;
-      margin: 0.3rem 0.4rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: 0.3rem;
+      margin: 0.4rem;
       background-color: #eedeb0;
       animation: ${SlideInLeft} 0.5s forwards;
     }

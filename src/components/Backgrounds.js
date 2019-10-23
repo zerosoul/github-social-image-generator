@@ -44,6 +44,7 @@ const Bgs = [
 ];
 
 const StyledWrapper = styled.nav`
+  z-index: 999;
   position: absolute;
   left: 0;
   top: 1rem;

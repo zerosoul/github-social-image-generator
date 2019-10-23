@@ -103,12 +103,12 @@ export default function SocialImage({
       <h2>{name}</h2>
       <p className="desc" dangerouslySetInnerHTML={{ __html: descriptionHTML }}></p>
       <Removable removable={editable}>
-        <p className="addr">{url}</p>
-      </Removable>
-      <Removable removable={editable}>
         <p contentEditable={false} className="createDate">
           Since {getDateFormatted(createdAt)}
         </p>
+      </Removable>
+      <Removable removable={editable}>
+        <p className="addr">{url}</p>
       </Removable>
       <Removable removable={editable}>
         <p contentEditable={false} className="lang">
