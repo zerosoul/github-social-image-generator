@@ -19,7 +19,7 @@ const Wrapper = styled.header`
     top: 20;
   }
 `;
-const LOCAL_REPO_URL = localStorage.getItem('LOCAL_REPO_URL') || getQueryValue('repo') || '';
+const LOCAL_REPO_URL = getQueryValue('repo') || localStorage.getItem('LOCAL_REPO_URL') || '';
 
 export default function Header({ gameover, loading, fetchRepo, total }) {
   const [repo, setRepo] = useState(null);
