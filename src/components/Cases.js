@@ -16,7 +16,7 @@ const StyledWrapper = styled.aside`
   display: flex;
   position: fixed;
   right: 5px;
-  top: 20%;
+  top: 10%;
   z-index: 999;
   .expand {
     box-shadow: 0 0 5px black;
