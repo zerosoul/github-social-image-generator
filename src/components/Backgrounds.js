@@ -4,11 +4,11 @@ import { Icon } from 'antd';
 import Cover from './Cover';
 import Grey from '../assets/img/bg/always-grey.png';
 import Brick from '../assets/img/bg/brick-wall.png';
-import BrickDark from '../assets/img/bg/brick-wall-dark.png';
+// import BrickDark from '../assets/img/bg/brick-wall-dark.png';
 import Food from '../assets/img/bg/food.png';
-import Illusion from '../assets/img/bg/use-your-illusion.png';
+import Star from '../assets/img/bg/starring.png';
 import Wood from '../assets/img/bg/dark-wood.png';
-// import Arches from '../assets/img/bg/arches.png';
+import Arches from '../assets/img/bg/arches.png';
 
 const Bgs = [
   {
@@ -22,8 +22,8 @@ const Bgs = [
     size: 'contain'
   },
   {
-    title: 'brick wall (dark)',
-    bg: BrickDark,
+    title: 'arches',
+    bg: Arches,
     size: 'contain'
   },
   {
@@ -37,8 +37,8 @@ const Bgs = [
     size: 'contain'
   },
   {
-    title: 'use your illusion',
-    bg: Illusion,
+    title: 'star',
+    bg: Star,
     size: 'auto'
   }
 ];
