@@ -28,7 +28,7 @@ const StyledWrapper = styled.section`
   h2 {
     font-weight: 800;
     font-size: 1.4rem;
-    margin: 0.3rem 0.4rem;
+    margin: 0 auto;
     padding: 0.2rem;
   }
   .desc {
@@ -36,25 +36,22 @@ const StyledWrapper = styled.section`
     margin-bottom: 0.3rem;
     padding: 0.2rem;
     white-space: normal;
-    max-height: 2.6rem;
-    overflow: hidden;
-    line-height: 1.4;
+    line-height: 1.2;
     text-align: center;
   }
   .addr {
     font-size: 0.5rem;
     color: blue;
     margin: 0.2rem;
-    padding: 0.2rem;
   }
   .createDate {
-    padding: 0.2rem;
     font-size: 0.5rem;
   }
   .lang {
     font-size: 0.6rem;
     margin-top: 0.4rem;
     .tag {
+      margin: 0 0.2rem;
       padding: 0.2rem 0.4rem;
       font-weight: 800;
       border-radius: 0.2rem;
@@ -101,7 +98,7 @@ export default function SocialImage({
       <Bgs updateBgImage={setBgImage} bgImage={currBgImage} currBgColor={currBgColor} />
       <Avatar url={avatarUrl} editable={editable} />
       <h2>{name}</h2>
-      <p className="desc" dangerouslySetInnerHTML={{ __html: descriptionHTML }}></p>
+      <section className="desc" dangerouslySetInnerHTML={{ __html: descriptionHTML }}></section>
       <Removable removable={editable}>
         <p contentEditable={false} className="createDate">
           Since {getDateFormatted(createdAt)}
@@ -112,7 +109,7 @@ export default function SocialImage({
       </Removable>
       <Removable removable={editable}>
         <p contentEditable={false} className="lang">
-          Code with{' '}
+          Code with
           <span className="tag" style={{ color, border: `1px solid ${color}` }}>
             {lang}
           </span>

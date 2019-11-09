@@ -1,16 +1,6 @@
-import { createGlobalStyle, keyframes } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-const gradientBG = keyframes`
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-`;
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
   *{
@@ -30,9 +20,10 @@ const GlobalStyle = createGlobalStyle`
     margin:0 auto;
     min-height:100vh;
     position: relative;
-    background: linear-gradient(-45deg, #e0eee8, #f0f0f4, #e9f1f6, #fff);
-     background-size: 400% 400%;
-    animation: ${gradientBG} 15s ease infinite;
+
+  }
+  p {
+    margin-bottom:0 !important;
   }
   #root{
     min-height:100vh;
