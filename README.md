@@ -1,5 +1,9 @@
 # Awesome Github repo social image generator tool
 
+[中文文档](README.zh.md)
+
+![demo](demo/demo.gif)
+
 Github >> Settings 👇
 
 ![setting](demo/github.setting.png)
