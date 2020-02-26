@@ -14,7 +14,8 @@ const Wrapper = styled.footer`
     margin-bottom: 0.5rem;
     z-index: 999;
   }
-  .copyright {
+  .copyright,
+  .icp {
     z-index: 999;
     margin-bottom: 1rem;
     a {
@@ -58,6 +59,11 @@ export default function Footer() {
         Copyright © 2019 by
         <a href="//yangerxiao.com" target="_blank">
           Tristan
+        </a>
+      </div>
+      <div className="icp">
+        <a rel="noopener noreferrer" target="_blank" href="http://www.beian.miit.gov.cn/">
+          京ICP备16015459号-1
         </a>
       </div>
     </Wrapper>
