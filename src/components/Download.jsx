@@ -27,8 +27,6 @@ export default function Download({ query = null, disable = false }) {
       html2canvas(tmpEle, {
         allowTaint: true,
         useCORS: true,
-        debug: process.env.NODE_ENV !== 'production',
-
         scale: window.devicePixelRatio,
       }).then(function (canvas) {
         console.log(canvas);

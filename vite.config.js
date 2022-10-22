@@ -8,6 +8,9 @@ export default defineConfig({
   server: {
     port: 3006,
   },
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },
   plugins: [
     react(),
     vitePluginImp({
