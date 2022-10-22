@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Icon } from 'antd';
+import { PictureFilled } from '@ant-design/icons';
 import Cover from './Cover';
 import Grey from '../assets/img/bg/always-grey.png';
 import Brick from '../assets/img/bg/brick-wall.png';
@@ -14,33 +14,33 @@ const Bgs = [
   {
     title: 'always grey',
     bg: Grey,
-    size: 'auto'
+    size: 'auto',
   },
   {
     title: 'brick wall',
     bg: Brick,
-    size: 'contain'
+    size: 'contain',
   },
   {
     title: 'arches',
     bg: Arches,
-    size: 'contain'
+    size: 'contain',
   },
   {
     title: 'food',
     bg: Food,
-    size: 'contain'
+    size: 'contain',
   },
   {
     title: 'dark wood',
     bg: Wood,
-    size: 'contain'
+    size: 'contain',
   },
   {
     title: 'star',
     bg: Star,
-    size: 'auto'
-  }
+    size: 'auto',
+  },
 ];
 
 const StyledWrapper = styled.nav`
@@ -137,14 +137,14 @@ export default function Backgrounds({ bgImage = null, currBgColor = '#fff', upda
     toggleCheckbox();
   };
   const toggleCheckbox = () => {
-    setChecked(prev => !prev);
+    setChecked((prev) => !prev);
   };
   return (
     <StyledWrapper data-html2canvas-ignore bg={bgImage} bgColor={currBgColor}>
       {checked && <Cover onClick={toggleCheckbox} />}
       <input onChange={toggleCheckbox} checked={checked} className="menu-toggler" type="checkbox" />
       <label htmlFor="menu-toggler">
-        <Icon theme="filled" type="picture" />
+        <PictureFilled />
       </label>
       <ul>
         {Bgs.map(({ title, bg, size }) => {

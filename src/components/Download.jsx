@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
 const sleep = async (dur = 2) => {
   const misDur = dur * 1000;
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve();
     }, misDur);
@@ -28,11 +29,11 @@ export default function Download({ query = null, disable = false }) {
         useCORS: true,
         debug: process.env.NODE_ENV !== 'production',
 
-        scale: window.devicePixelRatio
-      }).then(function(canvas) {
+        scale: window.devicePixelRatio,
+      }).then(function (canvas) {
         console.log(canvas);
 
-        canvas.toBlob(blob => {
+        canvas.toBlob((blob) => {
           saveAs(blob, `${name}-${new Date().getTime()}.png`);
           setGenerating(false);
         }, 'image/png');
@@ -49,7 +50,7 @@ export default function Download({ query = null, disable = false }) {
       disabled={disable}
       loading={generating}
       type="primary"
-      icon="download"
+      icon={<DownloadOutlined />}
       size={'large'}
       onClick={handleClick}
     >

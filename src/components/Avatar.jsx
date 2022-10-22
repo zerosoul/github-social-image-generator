@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Icon } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import DefaultIcon from '../assets/img/icon.png';
 const StyledWrapper = styled.div`
   position: relative;
   .avatar {
@@ -35,7 +36,7 @@ export default function Avatar({ url = '', editable = false }) {
 
     reader.addEventListener(
       'load',
-      function() {
+      function () {
         setImgSrc(reader.result);
       },
       false
@@ -45,9 +46,12 @@ export default function Avatar({ url = '', editable = false }) {
       reader.readAsDataURL(file);
     }
   };
+  const handleImageError = () => {
+    setImgSrc(DefaultIcon);
+  };
   return (
     <StyledWrapper contentEditable={false}>
-      <img src={imgSrc} alt="avatar" className="avatar" />
+      <img src={imgSrc} alt="avatar" onError={handleImageError} className="avatar" />
       {editable && (
         <p className="edit">
           <input
@@ -57,7 +61,7 @@ export default function Avatar({ url = '', editable = false }) {
             id="avatar"
             accept="image/*"
           />
-          <Icon data-html2canvas-ignore className="icon" type="upload" />
+          <UploadOutlined data-html2canvas-ignore className="icon" />
         </p>
       )}
     </StyledWrapper>

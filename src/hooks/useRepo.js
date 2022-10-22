@@ -1,17 +1,48 @@
 import { useCallback, useEffect } from 'react';
-import { useLazyQuery } from '@apollo/react-hooks';
-import { GetRepo } from './query.graphql';
+import { useLazyQuery, gql } from '@apollo/client';
 
+const GET_REPO = gql`
+  query GetRepo($name: String!, $owner: String!) {
+    repository(name: $name, owner: $owner) {
+      name
+      descriptionHTML
+      shortDescriptionHTML
+      createdAt
+      description
+      viewerHasStarred
+      url
+      usesCustomOpenGraphImage
+      forkCount
+      homepageUrl
+      nameWithOwner
+      diskUsage
+      owner {
+        avatarUrl
+      }
+      watchers {
+        totalCount
+      }
+      primaryLanguage {
+        name
+        color
+        id
+      }
+      stargazers {
+        totalCount
+      }
+    }
+  }
+`;
 export default function useRepo() {
-  const [getRepo, { data, loading, error }] = useLazyQuery(GetRepo);
+  const [getRepo, { data, loading, error }] = useLazyQuery(GET_REPO);
 
   const fetchRepo = useCallback(
     ({ owner, name }) => {
       getRepo({
         variables: {
           owner,
-          name
-        }
+          name,
+        },
       });
     },
     [getRepo]
@@ -28,6 +59,6 @@ export default function useRepo() {
     total: (data && data.repository.stargazers.totalCount) || null,
     repo: (data && data.repository) || null,
     loading,
-    error
+    error,
   };
 }

@@ -1,8 +1,17 @@
-import { useQuery } from '@apollo/react-hooks';
-import { getLimit } from './query.graphql';
+import { useQuery, gql } from '@apollo/client';
 
+const GET_LIMIT = gql`
+  query getLimit {
+    rateLimit {
+      cost
+      limit
+      remaining
+      resetAt
+    }
+  }
+`;
 export default function useLimit() {
-  const { loading, error, data } = useQuery(getLimit);
+  const { loading, error, data } = useQuery(GET_LIMIT);
   // 在此处 gameover undefined 很有必要，用来指示请求还没回来
   return {
     loading,
@@ -13,6 +22,6 @@ export default function useLimit() {
       data &&
       `${new Date(data.rateLimit.resetAt).toLocaleDateString()} ${new Date(
         data.rateLimit.resetAt
-      ).toLocaleTimeString()}`
+      ).toLocaleTimeString()}`,
   };
 }

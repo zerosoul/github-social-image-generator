@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Icon } from 'antd';
+import { CloseCircleFilled } from '@ant-design/icons';
 const StyledWrapper = styled.div`
   position: relative;
   .remove {
@@ -25,7 +25,7 @@ export default function Removable({ children, removable = true }) {
   };
   return vanish ? null : removable ? (
     <StyledWrapper onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-      {closeVisible && <Icon type="close-circle" onClick={handleRemoveClick} className="remove" />}
+      {closeVisible && <CloseCircleFilled onClick={handleRemoveClick} className="remove" />}
       {children}
     </StyledWrapper>
   ) : (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Icon } from 'antd';
+import { SaveFilled, EditFilled } from '@ant-design/icons';
 import Bgs from './Backgrounds';
 import Removable from './Removable';
 import BgColorSetting from './BgColorSetting';
@@ -8,20 +8,23 @@ import { getDateFormatted } from '../utils';
 import Avatar from './Avatar';
 import { useBackground } from '../hooks';
 const StyledWrapper = styled.section`
-  margin: 1rem auto;
+  margin: 2rem auto;
   padding: 1rem 1.4rem;
   background-color: ${({ bgColor }) => bgColor};
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
   align-items: center;
   position: relative;
   width: 30rem;
   height: 15rem;
   white-space: nowrap;
-  box-shadow: -3px 7px 14px 0px black;
   background-image: url(${({ bgImage }) => bgImage});
   background-repeat: repeat;
-  transition: background 0.5s;
+  transition: background-image 0.5s;
+  &:hover {
+    box-shadow: -3px 4px 20px 0 #666;
+  }
   &.starting {
     box-shadow: none;
   }
@@ -79,12 +82,12 @@ export default function SocialImage({
   url,
   primaryLanguage: { name: lang, color },
   owner: { avatarUrl },
-  createdAt
+  createdAt,
 }) {
   const { bgColor: currBgColor, bgImage: currBgImage, setBgImage, setBgColor } = useBackground();
   const [editable, setEditable] = useState(false);
   const toggleEdit = () => {
-    setEditable(prev => !prev);
+    setEditable((prev) => !prev);
     updateDownloadStatus(!editable);
   };
 
@@ -116,12 +119,11 @@ export default function SocialImage({
         </p>
       </Removable>
       <BgColorSetting color={currBgColor} updateColor={setBgColor} />
-      <Icon
-        onClick={toggleEdit}
-        data-html2canvas-ignore
-        className="toggleEdit"
-        type={editable ? 'save' : 'edit'}
-      />
+      {editable ? (
+        <SaveFilled onClick={toggleEdit} data-html2canvas-ignore className="toggleEdit" />
+      ) : (
+        <EditFilled onClick={toggleEdit} data-html2canvas-ignore className="toggleEdit" />
+      )}
     </StyledWrapper>
   );
 }

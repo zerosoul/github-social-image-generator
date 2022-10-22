@@ -26,7 +26,7 @@ const StyledWrapper = styled.section`
 export default function Particles() {
   useEffect(() => {
     setTimeout(() => {
-      window.particlesJS.load('particles-bg', 'static/particles.config.json', function() {
+      window.particlesJS.load('particles-bg', 'particles.config.json', function () {
         console.log('callback - particles.js config loaded');
       });
     }, 100);

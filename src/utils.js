@@ -1,4 +1,3 @@
-import URLSearchParams from '@ungap/url-search-params';
 
 export function getTimeFormated(count, zh = false) {
   return zh

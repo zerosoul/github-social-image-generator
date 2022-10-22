@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SketchPicker } from 'react-color';
 import styled, { keyframes } from 'styled-components';
-import { Icon } from 'antd';
+import { BgColorsOutlined } from '@ant-design/icons';
 import Cover from './Cover';
 
 const FadeInDown = keyframes`
@@ -37,16 +37,16 @@ const StyledWrapper = styled.div`
 export default function BgColorSetting({ color = 'fff', updateColor }) {
   const [visible, setVisible] = useState(false);
   const handleVisible = () => {
-    setVisible(prev => !prev);
+    setVisible((prev) => !prev);
   };
-  const handleColorChange = color => {
+  const handleColorChange = (color) => {
     const { rgb } = color;
     let rgbStr = `rgba(${Object.values(rgb).join(',')})`;
     updateColor(rgbStr);
   };
   return (
     <StyledWrapper contentEditable={false}>
-      <Icon data-html2canvas-ignore onClick={handleVisible} type="bg-colors" className="bg" />
+      <BgColorsOutlined data-html2canvas-ignore onClick={handleVisible} className="bg" />
 
       {visible ? (
         <div className="popover">
