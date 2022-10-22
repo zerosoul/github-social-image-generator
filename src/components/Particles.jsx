@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import 'particles.js/particles';
+// local file
+import '../assets/particles.js';
 
 const gradientBG = keyframes`
 	0% {

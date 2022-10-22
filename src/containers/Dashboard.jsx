@@ -6,7 +6,7 @@ import SocialImage from '../components/SocialImage';
 import Placeholder from '../components/Placeholder';
 
 const StyledWrapper = styled.section`
-  min-height: 60vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
